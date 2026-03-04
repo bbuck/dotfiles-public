@@ -95,7 +95,7 @@ and configuration.
 The dotfiles feature a `rake zsh:install` task that will install ZSH, oh-my-zsh,
 and then setup the `~/.dotfiles/personal` folder as a plugin in the oh-my-zsh
 plugin path for you. Using this method for custom configuration over modifying
-`~/.zshrc` is more reselient to oh-my-zsh changes, and easy to use without
+`~/.zshrc` is more resilient to oh-my-zsh changes, and easy to use without
 oh-my-zsh. It provides a special "home" container for your custom shell configuration
 independent of `~/.zshrc` (or other profile). If you choose to leverage it.
 
@@ -131,7 +131,7 @@ rake install_packages
 ```
 
 This will use OS specific configuration to install the packages through the
-appropraite package manager for you current system.
+appropriate package manager for you current system.
 
 ### 5. Uninstall
 
