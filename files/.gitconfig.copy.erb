@@ -1,0 +1,39 @@
+[user]
+	name = <%= print("Your Name: "); STDOUT.flush; STDIN.gets.chomp %>
+	email = <%= print("Your Email: "); STDOUT.flush; STDIN.gets.chomp %>
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICEQP8AHxkTMX0IZ9Z07G70kgYsmlVMeIMzZBBjo75Lm
+[alias]
+	new = checkout -b
+	ignore = update-index --assume-unchanged
+	unignore = update-index --no-assume-unchanged
+	unignore-all = "!git whats-ignored | xargs git update-index --no-assume-unchanged"
+	whats-ignored = "!git ls-files -v | grep '^[[:lower:]]' | awk '{ print $2 }'"
+	copy-branch = "!git rev-parse --abbrev-ref HEAD | pbcopy"
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[core]
+	excludesfile = <%= Config.home.join('.gitignore') %>
+	editor = nvim
+	autocrlf = input
+	ignorecase = <%= os.ignorecase? %>
+[apply]
+	whitespace = nowarn
+[format]
+	pretty = %C(yellow)%h%Creset %s %C(red)(%an, %cr)%Creset
+[github]
+	user = <%= print("GitHub Username: "); STDOUT.flush; STDIN.gets.chomp %>
+[push]
+	default = simple
+	autoSetupRemote = true
+[init]
+	defaultBranch = stable
+[credential]
+	helper = <%= os.git_credential_helper %>
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"

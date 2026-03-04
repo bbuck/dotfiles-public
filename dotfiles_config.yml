@@ -1,0 +1,31 @@
+## Specify packages to install through your OS's package manager. Packages
+## can be either a simple string name for the package like:
+##
+##  - lsd
+##  - bat
+##
+## Or you can define more inforamtion about a package or if the package name
+## differs from the installed executable you can specify in more detail:
+##
+##  - short: z
+##    long: zoxide
+##    executable: z
+##
+## The tooling uses the executable to test for installation on the OS before
+## requesting an install.
+##
+packages:
+  - lsd
+  - bat
+
+## If you need more control over your dotfiles you can specify OS specific
+## instructions per file. You specify the local file path and then a target
+## destination per OS:
+##
+##   - local_path: custom_dotfiles/example.sh
+##     action: symlink
+##     mac_os: ~/.example.sh
+##     linux: ~/.config/example/example.sh
+##
+dotfiles: []
+

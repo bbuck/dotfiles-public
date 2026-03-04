@@ -1,0 +1,8 @@
+.DS_Store
+
+# Used by asdf, I don't commit this because not all systems need it. But occasionally
+# I have needed a specific ruby installation for dotfiles.
+.tool-versions
+
+# good practice, don't commit your work (company) specific configuration
+personal/work.sh
