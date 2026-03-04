@@ -92,14 +92,14 @@ and configuration.
 
 ### 3. (Optional) Initialize your Machine
 
-The dotifles feature a `rake zsh:install` task that will install ZSH, oh-my-zsh,
+The dotfiles feature a `rake zsh:install` task that will install ZSH, oh-my-zsh,
 and then setup the `~/.dotfiles/personal` folder as a plugin in the oh-my-zsh
 plugin path for you. Using this method for custom configuration over modifying
 `~/.zshrc` is more reselient to oh-my-zsh changes, and easy to use without
 oh-my-zsh. It provides a special "home" container for your custom shell configuration
 independent of `~/.zshrc` (or other profile). If you choose to leverage it.
 
-To setup your machine for dotfiles uages (required if you want to use `packages`)
+To setup your machine for dotfiles usage (required if you want to use `packages`)
 you can run `rake init_machine`. Some platforms, like macOS, don't necessarily
 come with a local package manager. In these cases OS configurations (found in
 `lib/os.rb`) can specify rake tasks to execute for specific systems. For
@@ -122,7 +122,7 @@ in your `~/.dotfiles/dotfiles_config.yml`.
 
 #### Install packages
 
-If you have a common set of external/third party toosl you use regularly you
+If you have a common set of external/third party tools you use regularly you
 can define them under `packages:` in `dotfiles_config.yml` and then install
 them via:
 
