@@ -74,7 +74,7 @@ task :install_special_dotfiles do
         Logger.exists(destination)
       end
     else
-      case dotfile_config['action']
+      case custom_dotfile.action
       when 'link'
         dotfile.symlink(as: destination)
         Logger.linked(destination)
@@ -150,21 +150,20 @@ end
 desc 'ZSH specific installation tasks'
 namespace :zsh do
   task :install do
-    zsh = `which zsh 2>/dev/null`
-    omz = `which omz 2>/dev/null`
-
-    if zsh.empty?
-      Logger.installing('zsh')
-      `brew install zsh`
-    else
+    if os_details.installed?('zsh')
       Logger.installed("zsh")
+    else
+      Logger.installing('zsh')
+      os_details.install('zsh')
+      Logger.installed('zsh')
     end
 
-    if omz.empty?
+    if os_details.installed?('omz')
+      Logger.installed("oh-my-zsh")
+    else
       Logger.installing("oh-my-zsh")
       `sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
-    else
-      Logger.installed("oh-my-zsh")
+      Logger.installed('oh-my-zsh')
     end
 
     Rake::Task["zsh:install_custom_plugins"].execute
